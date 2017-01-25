@@ -3,31 +3,31 @@
     <frontend>
         <layout>
             <updates>
-                <nodwell_customaccount module="Nodwell_CustomAccount">
-                    <file>nodwell_customaccount.xml</file>
-                </nodwell_customaccount>
+                <nodwell_dashboard module="Nodwell_Dashboard">
+                    <file>nodwell_dashboard.xml</file>
+                </nodwell_dashboard>
             </updates>
         </layout>
         <routers>
-            <nodwell_customaccount>
+            <nodwell_dashboard>
                 <use>standard</use>
                 <args>
-                    <module>Nodwell_CustomAccount</module>
-                    <frontName>nodwell_customaccount</frontName>
+                    <module>Nodwell_Dashboard</module>
+                    <frontName>nodwell_dashboard</frontName>
                 </args>
-            </nodwell_customaccount>
+            </nodwell_dashboard>
         </routers>
     </frontend>
     <global>
         <helpers>
-            <nodwell_customaccount>
-                <class>Nodwell_CustomAccount_Helper</class>
-            </nodwell_customaccount>
+            <nodwell_dashboard>
+                <class>Nodwell_Dashboard_Helper</class>
+            </nodwell_dashboard>
         </helpers>
         <blocks>
-            <customaccount>
-                <products>Nodwell_CustomAccount_Block_Products</products>
-            </customaccount>
+            <dashboard>
+                <class>Nodwell_Dashboard_Block</class>
+            </dashboard>
         </blocks>
     </global>
 </config>

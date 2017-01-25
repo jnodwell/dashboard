@@ -4,16 +4,16 @@
         <reference name="customer_account_navigation">
             <action method="addLink">
                 <name>product_search_form</name>
-                <path>nodwell_customaccount/index/index</path>
+                <path>nodwell_dashboard/index/index</path>
                 <label>Product Search Form</label>
             </action>
         </reference>
     </customer_account>
-    <nodwell_customaccount_index_index>
+    <nodwell_dashboard_index_index>
         <label>Customer My Account Product Search Price In Range</label>
         <update handle="customer_account" />
         <reference name="my.account.wrapper">
-            <block type="core/template" name="nodwell_customacount_form" template="nodwell/customaccount/searchform.phtml" />
+            <block type="core/template" name="nodwell_dashboard_form" template="nodwell/dashboard/searchform.phtml" />
         </reference>
-    </nodwell_customaccount_index_index>
+    </nodwell_dashboard_index_index>
 </layout>

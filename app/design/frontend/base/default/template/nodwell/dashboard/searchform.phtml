@@ -3,7 +3,7 @@
     <div class="box-account box-info">
         <div class="box-head">
             <h2><?php echo $this->__('Product Search Form') ?></h2>
-            <p>Search for products by price range.</p>
+            <p>Search for products by price range. The high price must be no more than 5 times the low price.</p>
         </div>
         <div class="product-search-form">
             <form id="product-search-form" name="product-search-form">
@@ -47,7 +47,7 @@
             return true;
         }
     })
-    var postUrl = '<?php echo $this->getUrl("customaccount/index/request") ?>';
+    var postUrl = '<?php echo $this->getUrl("nodwell_dashboard/index/request") ?>';
     function doAjax() {
         if (customForm.validator.validate()) {
             new Ajax.Updater(

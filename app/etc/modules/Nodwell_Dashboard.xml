@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <Nodwell_CustomAccount>
+        <Nodwell_Dashboard>
             <active>true</active>
             <codePool>community</codePool>
-        </Nodwell_CustomAccount>
+        </Nodwell_Dashboard>
     </modules>
 </config>

@@ -4,11 +4,11 @@
  * Products.php
  *
  * @category Nodwell
- * @package Nodwell_CustomAccount
+ * @package Nodwell_Dashboard
  * @copyright Copyright (c) 2017 nodwell.net (www.nodwell.net)
  * @author jennifer@nodwell.net
  */
-class Nodwell_CustomAccount_Block_Products extends Mage_Core_Block_Template {
+class Nodwell_Dashboard_Block_Products extends Mage_Core_Block_Template {
     /**
      * @var
      */
@@ -31,4 +31,5 @@ class Nodwell_CustomAccount_Block_Products extends Mage_Core_Block_Template {
     public function getProducts() {
         return $this->_products;
     }
+
 }

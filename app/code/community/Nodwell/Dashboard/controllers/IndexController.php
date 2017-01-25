@@ -4,11 +4,11 @@
  * IndexController.php
  *
  * @category Nodwell
- * @package Nodwell_CustomAccount
+ * @package Nodwell_Dashboard
  * @copyright Copyright (c) 2017 nodwell.net (www.nodwell.net)
  * @author jennifer@nodwell.net
  */
-class Nodwell_CustomAccount_IndexController extends Mage_Core_Controller_Front_Action {
+class Nodwell_Dashboard_IndexController extends Mage_Core_Controller_Front_Action {
     /**
      * function preDispatch
      *
@@ -55,12 +55,12 @@ class Nodwell_CustomAccount_IndexController extends Mage_Core_Controller_Front_A
             if (count($products) == 0) {
                 $response = $this->__("There are no product matching with range!");
             } else {
-                $block = $this->getLayout()->createBlock('customaccount/products')->setTemplate('customaccount/products.phtml');
+                $block = $this->getLayout()->createBlock('dashboard/products')->setTemplate('nodwell/dashboard/products.phtml');
                 $block->setProducts($products);
                 $response = $block->toHtml();
             }
         }
-        //$this->getResponse()->setBody($response);
-        //echo $response;
+        $this->getResponse()->setBody($response);
+        //return $response;
     }
 }
