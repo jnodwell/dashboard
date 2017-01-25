@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <frontend>
+        <layout>
+            <updates>
+                <nodwell_customaccount module="Nodwell_CustomAccount">
+                    <file>nodwell_customaccount.xml</file>
+                </nodwell_customaccount>
+            </updates>
+        </layout>
+        <routers>
+            <nodwell_customaccount>
+                <use>standard</use>
+                <args>
+                    <module>Nodwell_CustomAccount</module>
+                    <frontName>nodwell_customaccount</frontName>
+                </args>
+            </nodwell_customaccount>
+        </routers>
+    </frontend>
+    <global>
+        <helpers>
+            <nodwell_customaccount>
+                <class>Nodwell_CustomAccount_Helper</class>
+            </nodwell_customaccount>
+        </helpers>
+        <blocks>
+            <customaccount>
+                <products>Nodwell_CustomAccount_Block_Products</products>
+            </customaccount>
+        </blocks>
+    </global>
+</config>

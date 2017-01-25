@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Nodwell_CustomAccount>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Nodwell_CustomAccount>
+    </modules>
+</config>

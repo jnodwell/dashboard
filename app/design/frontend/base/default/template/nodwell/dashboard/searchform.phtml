@@ -1,0 +1,75 @@
+<div class="dashboard">
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <div class="box-account box-info">
+        <div class="box-head">
+            <h2><?php echo $this->__('Product Search Form') ?></h2>
+            <p>Search for products by price range.</p>
+        </div>
+        <div class="product-search-form">
+            <form id="product-search-form" name="product-search-form">
+                <div class="field">
+                    <label for="low-price"><?php echo $this->__('Low Range:') ?></label>
+                    <input id="low-price" type="text" name="low-price"
+                           class="required-entry validate-not-negative-number"/>
+                </div>
+                <div class="field">
+                    <label for="high-price"><?php echo $this->__('High Range:') ?></label>
+                    <input type="text" id="high-price" name="high-price"
+                           class="required-entry validate-not-negative-number validate-high-price"/>
+                </div>
+                <div class="field">
+                    <label for="sort"><?php echo $this->__('Sort by Price:') ?></label>
+                    <select name="sort" class="required-entry">
+                        <option value="asc"><?php echo $this->__('Ascending') ?></option>
+                        <option value="desc"><?php echo $this->__('Descending') ?></option>
+                    </select>
+                </div>
+                <div class="field">
+                    <input type="submit" class="button" value="Submit"/>
+                </div>
+                <span id="formLoader" style="display:none;">&nbsp;</span>
+            </form>
+        </div>
+        <div class="products-table" id="products-table"></div>
+    </div>
+</div>
+<? $validation_text = 'Any value greater than "Low Range" and no more than 5x higher than the entered "Low Range". For example, if Low Range entered is $100, the maximum high range value is: 500.'; ?>
+<script type="text/javascript">
+    //< ![CDATA[
+    var formId = 'product-search-form';
+    var customForm = new VarienForm(formId);
+    Validation.add('validate-high-price', '<?php echo $validation_text; ?>', function (v) {
+        var min = parseInt(jQuery('#low-price').val());
+        var max = parseInt(jQuery('#high-price').val());
+        if (min >= max || max > (min * 5)) {
+            return false;
+        } else {
+            return true;
+        }
+    })
+    var postUrl = '<?php echo $this->getUrl("customaccount/index/request") ?>';
+    function doAjax() {
+        if (customForm.validator.validate()) {
+            new Ajax.Updater(
+                {success: 'formSuccess'}, postUrl, {
+                    method: 'post',
+                    asynchronous: true,
+                    evalScripts: false,
+                    onComplete: function (data) {
+                        jQuery('#products-table').html(data.responseText);
+                    },
+                    onLoading: function (data) {
+                        jQuery('#products-table').html('');
+                        Element.show('formLoader');
+                    },
+                    parameters: $(formId).serialize(true),
+                }
+            );
+        }
+    }
+    new Event.observe(formId, 'submit', function (e) {
+        e.stop();
+        doAjax();
+    });
+    //]]>
+</script>
